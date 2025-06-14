@@ -1,38 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="./assets/img/apple-icon.png"
-    />
-    <link rel="icon" type="image/png" href="./src/assets/img/favicon.png" />
-    <title>Vue Material Kit 2 by Creative Tim</title>
-    <!--     Fonts and icons     -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"
-    />
-    <!-- Font Awesome Icons -->
-    <script
-      src="https://kit.fontawesome.com/42d5adcbca.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Material Icons -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
-      rel="stylesheet"
-    />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brickwall Bulldog - Genealogy Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brick-red': '#a63232',
+                        'light-brick': '#d17878',
+                        'deep-brown': '#6d4c41',
+                        'light-brown': '#b39784',
+                        'cream': '#f5f2ed',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cream text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-brick-red text-white p-4 text-center">
+        <div class="flex items-center justify-center gap-4 mb-4">
+            <div class="w-20 h-20 bg-light-brown rounded-full flex items-center justify-center overflow-hidden">
+                <!-- <svg width="60" height="60" viewBox="0 0 60 60">
+                    <rect x="10" y="10" width="10" height="10" fill="#8B4513" />
+                    <rect x="20" y="10" width="10" height="10" fill="#A52A2A" />
+                    <rect x="30" y="10" width="10" height="10" fill="#8B4513" />
+                    <rect x="40" y="10" width="10" height="10" fill="#A52A2A" />
+                    <rect x="10" y="20" width="10" height="10" fill="#A52A2A" />
+                    <rect x="20" y="20" width="10" height="10" fill="#8B4513" />
+                    <rect x="30" y="20" width="10" height="10" fill="#A52A2A" />
+                    <rect x="40" y="20" width="10" height="10" fill="#8B4513" />
+                    <rect x="10" y="30" width="10" height="10" fill="#8B4513" />
+                    <circle cx="35" cy="35" r="15" fill="#B5916D" />
+                    <circle cx="31" cy="30" r="3" fill="#333" />
+                    <circle cx="39" cy="30" r="3" fill="#333" />
+                    <path d="M28 38 Q35 43 42 38" stroke="#333" stroke-width="2" fill="none" />
+                </svg> -->
+                <img src="./assets/home/bulldog_logo.png" width="70" height="70"/>
+            </div>
+            <h1 class="text-3xl font-bold">Brickwall Bulldog</h1>
+        </div>
+        <p class="text-lg">Breaking Through Your Genealogy Roadblocks</p>
+    </header>
+    
+    <!-- Navigation -->
+    <nav class="bg-deep-brown p-4">
+        <ul class="flex justify-center gap-8 flex-wrap md:flex-nowrap">
+            <li><a href="index.html" class="text-white font-bold hover:text-light-brown transition-colors">Home</a></li>
+            <li><a href="about-us.html" class="text-white font-bold hover:text-light-brown transition-colors">About Us</a></li>
+            <li><a href="#services" class="text-white font-bold hover:text-light-brown transition-colors">Services</a></li>
+            <li><a href="#how-it-works" class="text-white font-bold hover:text-light-brown transition-colors">How It Works</a></li>
+            <li><a href="#testimonials" class="text-white font-bold hover:text-light-brown transition-colors">Success Stories</a></li>
+            <li><a href="#contact" class="text-white font-bold hover:text-light-brown transition-colors">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Banner -->
+    <div class="relative w-full" style="min-height: 24rem;">
+        <div class="absolute inset-0 z-0">
+            <img src="./assets/home/bulldog_hero.png" alt="Bulldog breaking through a brick wall" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-r from-deep-brown/70 to-brick-red/70"></div>
+        </div>
+        <div class="relative z-10 flex items-center justify-center py-16 px-4">
+            <div class="text-center text-white p-8 max-w-3xl bg-black/50 rounded-lg">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 drop-shadow-md">Unleash Your Family's History</h2>
+                <p class="text-xl mb-8 drop-shadow">Stuck at a genealogy brick wall? Our expert researchers specialize in breaking through those tough roadblocks to reveal your family's hidden stories and connections.</p>
+                <a href="#contact" class="inline-block bg-deep-brown hover:bg-light-brown text-white font-bold py-3 px-6 rounded transition-colors">Get Started Today</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Services Section -->
+<section id="services" class="py-12 px-6 max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-brick-red text-center mb-8">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <a href="breakthrough-service.html" class="bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-brick-red hover:-translate-y-1 transition-transform block">
+            <div class="h-48 overflow-hidden">
+                <img src="./assets/home/brick-wall.jpg" alt="Breaking through genealogy brick walls" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-deep-brown mb-4">Brick Walls</h3>
+                <p>Having successfully smashed many long-standing brick walls, we can help you 
+                    shatter yours. New perspectives, unique collections, and a deep look at genetics 
+                    can all lead to new discoveries. If you are stumped by a common name, missing records, 
+                    or an NPE (non-paternity event) let us piece together the evidence you need to move with 
+                    confidence to the next generation. (link to Ransom Todd Obit article and proof summary) </p>
+                <div class="text-center mt-4">
+                    <span class="inline-block bg-brick-red hover:bg-deep-brown text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Learn More</span>
+                </div>
+            </div>
+        </a>
+        <a href="family-tree-service.html" class="bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-brick-red hover:-translate-y-1 transition-transform block">
+            <div class="h-48 overflow-hidden">
+                <img src="./assets/home/family-tree.jpg" alt="Family tree construction" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-deep-brown mb-4">Research</h3>
+                <p>Whether you are starting from scratch or have been researching for years, 
+                    we can help. We have extensive experience looking at all types of records and 
+                    making difficult connections. Local to a FamilySearch Library and the Clayton 
+                    Genealogy Library, we have access to a wealth of records not available online.
+                     (link to Tale of Two Elizabeths sample) </p>
+                <div class="text-center mt-4">
+                    <span class="inline-block bg-brick-red hover:bg-deep-brown text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Learn More</span>
+                </div>
+            </div>
+        </a>
+        
+        <a href="dna-analysis-service.html" class="bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-brick-red hover:-translate-y-1 transition-transform block">
+            <div class="h-48 overflow-hidden">
+                <img src="./assets/home/dna.jpg" alt="DNA analysis services" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-deep-brown mb-4">DNA Analysis</h3>
+                <p>Match lists, chromosome mapping, the Big Y- we can make sense of it all. 
+                    We use your genes to help connect you with the past and present. 
+                    (Link to different options for DNA tests and what they look at)</p>
+                <div class="text-center mt-4">
+                    <span class="inline-block bg-brick-red hover:bg-deep-brown text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Learn More</span>
+                </div>
+            </div>
+        </a>
+        <a href="family-history-books-service.html" class="bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-brick-red hover:-translate-y-1 transition-transform block">
+            <div class="h-48 overflow-hidden">
+                <img src="./assets/home/history-book.jpg" alt="Family history book creation" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-deep-brown mb-4">Heirloom Books</h3>
+                <p>If you have inherited a pile of old photos and have no idea what to do 
+                    with them, let us turn them into a beautiful, custom, interactive book 
+                    for generations to enjoy. (link to sample books) </p>
+                <div class="text-center mt-4">
+                    <span class="inline-block bg-brick-red hover:bg-deep-brown text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Learn More</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+    
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-12 px-6 max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-brick-red text-center mb-8">How It Works</h2>
+        <div class="space-y-8">
+            <div class="flex gap-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-brick-red text-white rounded-full flex items-center justify-center font-bold">1</div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Initial Consultation</h3>
+                    <p>We start with a free consultation to discuss what you know, 
+                        what you want to know, and how we can help.</p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-brick-red text-white rounded-full flex items-center justify-center font-bold">2</div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Research Plan</h3>
+                    <p>If you decide to move forward, we will develop a customized 
+                        research plan, an estimated timeline, and an expected budget. 
+                        You will know exactly what to expect. </p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-brick-red text-white rounded-full flex items-center justify-center font-bold">3</div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">We Get to Work</h3>
+                    <p>We start digging into archives, databases, and specialized resources. 
+                        We piece together all the evidence to solve your genealogical puzzle.</p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-brick-red text-white rounded-full flex items-center justify-center font-bold">4</div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Progress Updates</h3>
+                    <p>You will receive regular updates with as much or as little information 
+                        as you want, so that you can follow along with our discoveries or wait 
+                        for the final product. </p>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="flex-shrink-0 w-10 h-10 bg-brick-red text-white rounded-full flex items-center justify-center font-bold">5</div>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Comprehensive Results</h3>
+                    <p>You will receive the results in the form you want- a formal write-up 
+                        or just all the information for you to move forward on your own. 
+                        Every project will include a fully referenced research log, so 
+                        that you can pick up where we leave off. Remember- what you DON’T 
+                        find can be just as valuable as what you do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-12 px-6 bg-light-brown">
+        <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-8">Success Stories</h2>
+        <div class="max-w-4xl mx-auto space-y-8">
+            <div class="bg-white p-8 rounded-lg shadow-md relative">
+                <p class="mb-4 relative">
+                    <span class="absolute -top-5 left-5 text-6xl text-light-brick">"</span>
+                    After hitting a dead end with my great-grandfather for over 15 years, Brickwall Bulldogs found his immigration records and traced his family back three more generations in Ireland. I finally have the answers I've been searching for!
+                </p>
+                <div class="text-right font-bold text-deep-brown">- Margaret H., Boston, MA</div>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-md relative">
+                <p class="mb-4 relative">
+                    <span class="absolute -top-5 left-5 text-6xl text-light-brick">"</span>
+                    I had no idea where to start with my family history. The team at Brickwall Bulldogs not only built my family tree but discovered a connection to historical events I never knew about. The family history book they created is now our most treasured heirloom.
+                </p>
+                <div class="text-right font-bold text-deep-brown">- James T., Portland, OR</div>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-md relative">
+                <p class="mb-4 relative">
+                    <span class="absolute -top-5 left-5 text-6xl text-light-brick">"</span>
+                    When DNA testing revealed unexpected results, I was confused and overwhelmed. Brickwall Bulldogs helped me make sense of it all and uncovered a fascinating family secret that explained everything. Their expertise was invaluable.
+                </p>
+                <div class="text-right font-bold text-deep-brown">- Sophia R., Chicago, IL</div>
+            </div>
+        </div>
+    </section>
 
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <section id="about-summary" class="py-12 px-6 max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-brick-red text-center mb-8">About Us</h2>
+        <div class="text-center bg-white p-8 rounded-lg shadow-md">
+            <img src="./assets/bulldog_logo.png" alt="Brickwall Bulldog Logo" class="w-24 h-24 mx-auto mb-6 rounded-full bg-light-brown p-2">
+            <p class="text-lg mb-4">We are a mother-daughter duo, passionate about connection and discovery. I have been researching for 
+                                    40 years, earning my PG in Genealogy and Paleography from University of Strathclyde in 2024. My teenage 
+                                    daughter has also caught the research bug, so you can benefit from her youthful technological skills and 
+                                    her uncanny ability to make connections! </p>
+            <p class="text-lg mb-6">Our ancestors are so much more than names and dates! Let us help you understand who they were and the rich lives they lived.</p>
+            <a href="about-us.html" class="inline-block bg-deep-brown hover:bg-light-brown text-white font-bold py-3 px-6 rounded transition-colors">Learn More About Us</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-brick-red text-center mb-8">Contact Us</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-6">Get in Touch</h3>
+                <form>
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 font-bold text-deep-brown">Name</label>
+                        <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 font-bold text-deep-brown">Email</label>
+                        <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="phone" class="block mb-2 font-bold text-deep-brown">Phone (Optional)</label>
+                        <input type="tel" id="phone" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div class="mb-6">
+                        <label for="service" class="block mb-2 font-bold text-deep-brown">Service Interested In</label>
+                        <select id="service" class="w-full p-3 border border-gray-300 rounded-md">
+                            <option value="brick-wall">Brick Wall Breakthrough</option>
+                            <option value="family-tree">Family Tree Construction</option>
+                            <option value="document">Document Discovery</option>
+                            <option value="dna">DNA Analysis</option>
+                            <option value="ancestry">Ancestry Research</option>
+                            <option value="book">Family History Book</option>
+                            <option value="other">Other (Please specify)</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block mb-2 font-bold text-deep-brown">Tell Us About Your Research Needs</label>
+                        <textarea id="message" class="w-full p-3 border border-gray-300 rounded-md h-40" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-brick-red hover:bg-light-brick text-white font-bold py-3 px-6 rounded transition-colors">Send Message</button>
+                </form>
+            </div>
+            <div class="bg-deep-brown text-white p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-light-brown mb-6">Brickwall Bulldogs</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+                        </svg>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>info@brickwallbulldogs.com</span>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>123 Family Tree Lane<br>Ancestry City, AC 12345</span>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>
+                            Monday - Friday: 9am - 5pm<br>
+                            Saturday: 10am - 2pm<br>
+                            Sunday: Closed
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-8 mt-16">
+        <div class="flex justify-center gap-6 mb-6">
+            <a href="#" class="bg-brick-red hover:bg-light-brick w-10 h-10 rounded-full flex items-center justify-center transition-colors" aria-label="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+            </a>
+            <a href="#" class="bg-brick-red hover:bg-light-brick w-10 h-10 rounded-full flex items-center justify-center transition-colors" aria-label="Twitter">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+            </a>
+            <a href="#" class="bg-brick-red hover:bg-light-brick w-10 h-10 rounded-full flex items-center justify-center transition-colors" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="#" class="bg-brick-red hover:bg-light-brick w-10 h-10 rounded-full flex items-center justify-center transition-colors" aria-label="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+        </div>
+        <p>&copy; 2025 Brickwall Bulldog Genealogy Services. All rights reserved.</p>
+    </footer>
+</body>
 </html>

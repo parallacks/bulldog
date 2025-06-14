@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA Analysis - Brickwall Bulldog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brick-red': '#a63232',
+                        'light-brick': '#d17878',
+                        'deep-brown': '#6d4c41',
+                        'light-brown': '#b39784',
+                        'cream': '#f5f2ed',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cream text-gray-800 font-sans">
+    <header class="bg-brick-red text-white p-4 text-center">
+        <div class="flex items-center justify-center gap-4 mb-4">
+            <div class="w-20 h-20 bg-light-brown rounded-full flex items-center justify-center overflow-hidden">
+                <img src="./assets/bulldog_logo.png" width="70" height="70" alt="Brickwall Bulldog Logo"/>
+            </div>
+            <h1 class="text-3xl font-bold">Brickwall Bulldog</h1>
+        </div>
+        <p class="text-lg">Breaking Through Your Genealogy Roadblocks</p>
+    </header>
+    
+    <nav class="bg-deep-brown p-4">
+        <ul class="flex justify-center gap-8 flex-wrap md:flex-nowrap">
+            <li><a href="index.html" class="text-white font-bold hover:text-light-brown transition-colors">Home</a></li>
+            <li><a href="index.html#services" class="text-white font-bold hover:text-light-brown transition-colors">Services</a></li>
+            <li><a href="index.html#how-it-works" class="text-white font-bold hover:text-light-brown transition-colors">How It Works</a></li>
+            <li><a href="index.html#testimonials" class="text-white font-bold hover:text-light-brown transition-colors">Success Stories</a></li>
+            <li><a href="index.html#contact" class="text-white font-bold hover:text-light-brown transition-colors">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <div class="relative w-full" style="min-height: 20rem;">
+        <div class="absolute inset-0 z-0">
+            <img src="./assets/dna-hero.png" alt="Abstract representation of DNA strands and family connections" class="w-full h-full object-cover"> <div class="absolute inset-0 bg-gradient-to-r from-deep-brown/70 to-brick-red/70"></div>
+        </div>
+        <div class="relative z-10 flex items-center justify-center py-16 px-4">
+            <div class="text-center text-white p-8 max-w-3xl">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 drop-shadow-md">DNA Analysis Services</h2>
+                <p class="text-xl mb-4 drop-shadow">Unlock the secrets in your DNA. We help you understand your genetic results, connect with relatives, and break through genealogical brick walls.</p>
+            </div>
+        </div>
+    </div>
+    
+    <section class="py-12 px-6 max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md p-8 mb-10">
+            <h3 class="text-2xl font-bold text-brick-red mb-4">Making Sense of Your Genetic Story</h3>
+            <p class="mb-4">DNA testing has revolutionized genealogy, offering powerful new ways to discover your roots. However, understanding the results can be complex. We specialize in interpreting:</p>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Autosomal DNA (atDNA):</strong> Used for finding relatives across all your ancestral lines within the last 5-7 generations (e.g., AncestryDNA, 23andMe, MyHeritage DNA, FamilyTreeDNA Family Finder).</li>
+                <li><strong>Y-DNA:</strong> Traces the direct paternal line (father to son) and helps with surname studies.</li>
+                <li><strong>Mitochondrial DNA (mtDNA):</strong> Traces the direct maternal line (mother to child).</li>
+                <li><strong>Ethnicity Estimates:</strong> Understanding what these percentages mean and their limitations.</li>
+                <li><strong>Match Lists:</strong> Identifying how you connect to your genetic matches and prioritizing the most relevant ones.</li>
+                <li><strong>Advanced Tools:</strong> Chromosome browsers, segment data, and third-party tools like GEDmatch.</li>
+            </ul>
+            <p>Whether you're new to genetic genealogy or have results you can't decipher, we provide clarity and actionable research paths.</p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-8 mb-10">
+            <h3 class="text-2xl font-bold text-brick-red mb-4">Our DNA Analysis Approach</h3>
+            <p class="mb-6">We combine genetic expertise with traditional genealogical methods to maximize your DNA test results:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="border-l-4 border-light-brick pl-4">
+                    <h4 class="font-bold text-deep-brown mb-2">Results Review & Goal Setting</h4>
+                    <p>We assess your current DNA results, discuss your research objectives, and determine how DNA can help answer your specific questions.</p>
+                </div>
+                <div class="border-l-4 border-light-brick pl-4">
+                    <h4 class="font-bold text-deep-brown mb-2">Match Management & Clustering</h4>
+                    <p>We help organize your DNA matches, identify common ancestors using tools like the Leeds Method, and build genetic networks.</p>
+                </div>
+                <div class="border-l-4 border-light-brick pl-4">
+                    <h4 class="font-bold text-deep-brown mb-2">Triangulation & Segment Analysis</h4>
+                    <p>For complex cases, we use segment data to confirm ancestral lines and pinpoint common ancestors with specific matches.</p>
+                </div>
+                <div class="border-l-4 border-light-brick pl-4">
+                    <h4 class="font-bold text-deep-brown mb-2">Integration with Traditional Research</h4>
+                    <p>DNA evidence is most powerful when combined with documentary evidence. We link genetic connections to your paper trail.</p>
+                </div>
+            </div>
+            <p>Our goal is to transform your raw DNA data into tangible family history discoveries and help you overcome research obstacles.</p>
+        </div>
+        
+        <h3 class="text-2xl font-bold text-brick-red mb-6">DNA Success Stories</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-56 overflow-hidden">
+                    <img src="./assets/case-study-dna1.jpg" alt="Chart showing DNA connections" class="w-full h-full object-cover"> </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-deep-brown mb-2">Identifying an Unknown Grandparent</h4>
+                    <p class="mb-4">Laura had taken a DNA test hoping to identify her biological maternal grandfather, as her mother was adopted and had very little information.</p>
+                    <h5 class="font-bold text-sm text-brick-red mb-2">Our Solution:</h5>
+                    <p>By meticulously analyzing Laura's top DNA matches, building out their family trees, and identifying shared ancestral couples, we narrowed down potential candidates. Further targeted testing of a key match confirmed the identity of her grandfather's family.</p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="h-56 overflow-hidden">
+                    <img src="./assets/case-study-dna2.jpg" alt="Map showing ancestral migration based on DNA" class="w-full h-full object-cover"> </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-deep-brown mb-2">Breaking a Colonial Brick Wall</h4>
+                    <p class="mb-4">Robert was stuck on his 4x great-grandfather in 1780s Virginia. Documentary evidence was scarce and conflicting.</p>
+                    <h5 class="font-bold text-sm text-brick-red mb-2">Our Solution:</h5>
+                    <p>We utilized Y-DNA results from a direct male descendant and autosomal DNA matches from various cousins. By identifying shared segments and tracing the lineages of these matches, we were able to pinpoint the correct ancestral couple, breaking through a decades-old brick wall.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-light-brown rounded-lg shadow-md p-8">
+            <h3 class="text-2xl font-bold text-white mb-6">DNA Analysis Packages</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h4 class="font-bold text-xl text-deep-brown mb-2">DNA Results Overview</h4>
+                    <p class="text-gray-600 font-bold mb-4">$395</p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Review of one DNA test (e.g., AncestryDNA, 23andMe).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Explanation of ethnicity estimates and top matches.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Basic strategies for contacting matches.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>90-minute consultation & brief summary report.</span>
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="block text-center bg-brick-red hover:bg-light-brick text-white font-bold py-2 px-4 rounded transition-colors">Get Started</a>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 relative border-2 border-brick-red">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brick-red text-white text-sm font-bold py-1 px-3 rounded-full">Most Popular</div>
+                    <h4 class="font-bold text-xl text-deep-brown mb-2">Genetic Genealogy Deep Dive</h4>
+                    <p class="text-gray-600 font-bold mb-4">$995</p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Analysis of up to two DNA tests (e.g., autosomal, Y-DNA, or mtDNA).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Match clustering and identification of key shared matches.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Development of a DNA-informed research plan.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>15 hours of analysis and research. Detailed report.</span>
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="block text-center bg-brick-red hover:bg-light-brick text-white font-bold py-2 px-4 rounded transition-colors">Get Started</a>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h4 class="font-bold text-xl text-deep-brown mb-2">Complex DNA Problem Solving</h4>
+                    <p class="text-gray-600 font-bold mb-4">$1,895+</p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Targeted research for unknown parentage, adoption cases, or specific brick walls.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Advanced techniques (segment triangulation, visual phasing if applicable).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Integration with extensive documentary research.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>Custom project scope (starting at 30+ research hours).</span>
+                        </li>
+                    </ul>
+                    <a href="index.html#contact" class="block text-center bg-brick-red hover:bg-light-brick text-white font-bold py-2 px-4 rounded transition-colors">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-12 px-6 bg-deep-brown">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <h3 class="text-3xl font-bold mb-6">Decode Your DNA and Discover Your Ancestors?</h3>
+            <p class="text-xl mb-8">Let our DNA experts guide you through your genetic results and connect you to your family story.</p>
+            <a href="index.html#contact" class="inline-block bg-brick-red hover:bg-light-brick text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Schedule a DNA Consultation</a>
+        </div>
+    </section>
+    
+    <footer class="bg-gray-800 text-white text-center p-8">
+        <div class="flex justify-center gap-6 mb-6">
+            <a href="#" class="bg-brick-red hover:bg-light-brick w-10 h-10 rounded-full flex items-center justify-center transition-colors" aria-label="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+            </a>
+            <a href="#" class="bg-brick-red hover:bg-light-brick w-10 h-10 rounded-full flex items-center justify-center transition-colors" aria-label="Twitter">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+            </a>
+            <a href="#" class="bg-brick-red hover:bg-light-brick w-10 h-10 rounded-full flex items-center justify-center transition-colors" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="#" class="bg-brick-red hover:bg-light-brick w-10 h-10 rounded-full flex items-center justify-center transition-colors" aria-label="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+        </div>
+        <p>&copy; 2025 Brickwall Bulldog Genealogy Services. All rights reserved.</p>
+    </footer>
+</body>
+</html>
