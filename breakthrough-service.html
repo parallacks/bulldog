@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brick Wall Breakthrough - Brickwall Bulldog</title>
+    <title>Brick Wall Breakthrough - Brick Wall Bulldogs</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brick-red': '#a63232',
+                        'brick-red': '#8F3C3C',
                         'light-brick': '#d17878',
                         'deep-brown': '#6d4c41',
                         'light-brown': '#b39784',
@@ -26,9 +26,9 @@
     <header class="bg-brick-red text-white p-4 text-center">
         <div class="flex items-center justify-center gap-4 mb-4">
             <div class="w-20 h-20 bg-light-brown rounded-full flex items-center justify-center overflow-hidden">
-                <img src="./assets/bulldog_logo.jpg" width="70" height="70" alt="Brickwall Bulldog Logo"/>
+                <img src="./assets/home/bulldog_logo.png" width="70" height="70"/>
             </div>
-            <h1 class="text-3xl font-bold">Brickwall Bulldog</h1>
+            <h1 class="text-3xl font-bold">Brick Wall Bulldogs</h1>
         </div>
         <p class="text-lg">Breaking Through Your Genealogy Roadblocks</p>
     </header>
@@ -37,17 +37,28 @@
     <nav class="bg-deep-brown p-4">
         <ul class="flex justify-center gap-8 flex-wrap md:flex-nowrap">
             <li><a href="index.html" class="text-white font-bold hover:text-light-brown transition-colors">Home</a></li>
-            <li><a href="services.html" class="text-white font-bold hover:text-light-brown transition-colors">Services</a></li>
-            <li><a href="index.html#how-it-works" class="text-white font-bold hover:text-light-brown transition-colors">How It Works</a></li>
-            <li><a href="index.html#testimonials" class="text-white font-bold hover:text-light-brown transition-colors">Success Stories</a></li>
-            <li><a href="index.html#contact" class="text-white font-bold hover:text-light-brown transition-colors">Contact Us</a></li>
+            <li><a href="about-us.html" class="text-white font-bold hover:text-light-brown transition-colors">Our Story</a></li>
+            <li class="relative group">
+                <span class="text-white font-bold hover:text-light-brown transition-colors cursor-pointer">Services</span>
+                <ul class="absolute hidden group-hover:block bg-deep-brown shadow-lg py-2 rounded-md w-48 z-20">
+                    <li>
+                        <a href="breakthrough-service.html" class="block px-4 py-2 text-white hover:bg-light-brown transition-colors">Brick Wall Breakthrough</a>
+                    </li>
+                    <li>
+                        <a href="family-tree-service.html" class="block px-4 py-2 text-white hover:bg-light-brown transition-colors">Family Tree Construction</a>
+                    </li>
+                    <li><a href="dna-analysis-service.html" class="block px-4 py-2 text-white hover:bg-light-brown transition-colors">DNA Analysis</a></li>
+                    <li><a href="family-history-books-service.html" class="block px-4 py-2 text-white hover:bg-light-brown transition-colors">Family History Books</a></li>
+                </ul>
+            </li>
+            <li><a href="#contact" class="text-white font-bold hover:text-light-brown transition-colors">Get Started</a></li>
         </ul>
     </nav>
     
     <!-- Service Hero Banner -->
     <div class="relative w-full" style="min-height: 20rem;">
         <div class="absolute inset-0 z-0">
-            <img src="./assets/breakthroughservice/brickwall-hero.jpg" alt="Breaking through genealogy brick walls" class="w-full h-full object-cover">
+            <img src="./assets/breakthroughservice/Brick Wall-hero.jpg" alt="Breaking through genealogy brick walls" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-deep-brown/70 to-brick-red/70"></div>
         </div>
         <div class="relative z-10 flex items-center justify-center py-16 px-4">
@@ -76,7 +87,7 @@
         
         <div class="bg-white rounded-lg shadow-md p-8 mb-10">
             <h3 class="text-2xl font-bold text-brick-red mb-4">Our Brick Wall Breakthrough Approach</h3>
-            <p class="mb-6">At Brickwall Bulldog, we specialize in solving these genealogical mysteries using a methodical and creative approach:</p>
+            <p class="mb-6">At Brick Wall Bulldog, we specialize in solving these genealogical mysteries using a methodical and creative approach:</p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div class="border-l-4 border-light-brick pl-4">
@@ -283,7 +294,7 @@
                 </svg>
             </a>
         </div>
-        <p>&copy; 2025 Brickwall Bulldog Genealogy Services. All rights reserved.</p>
+        <p>&copy; 2025 Brick Wall Bulldogs Genealogy Services. All rights reserved.</p>
     </footer>
 </body>
 </html>
