@@ -15,20 +15,88 @@
                         'deep-brown': '#6d4c41',
                         'light-brown': '#b39784',
                         'cream': '#f5f2ed',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                        'bounce-gentle': 'bounceGentle 1s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(143, 60, 60, 0.3)' },
+                            '50%': { boxShadow: '0 0 30px rgba(143, 60, 60, 0.6)' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
                     }
                 }
             }
         }
     </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .font-heading { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .text-shadow-light { text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+        
+        .gradient-text {
+            background: #8F3C3C;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .service-icon:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+        
+        .pulse-on-hover:hover {
+            animation: pulseGlow 1s ease-in-out;
+        }
+    </style>
 </head>
-<body class="bg-cream text-gray-800 font-sans">
+<body class="bg-cream text-gray-800 font-body">
     <!-- Header -->
-    <header class="bg-brick-red text-white p-4 text-center">
+    <header class="bg-gradient-to-r from-brick-red to-deep-brown text-white p-4 text-center animate-fade-in">
         <div class="flex items-center justify-center gap-4 mb-4">
-            <div class="w-20 h-20 bg-light-brown rounded-full flex items-center justify-center overflow-hidden">
+            <div class="w-20 h-20 bg-light-brown rounded-full flex items-center justify-center overflow-hidden service-icon pulse-on-hover">
                 <img src="./assets/home/bulldog_logo.png" width="70" height="70"/>
             </div>
-            <h1 class="text-3xl font-bold">Brick Wall Bulldogs</h1>
+            <h1 class="text-3xl font-bold font-heading text-shadow">Brick Wall Bulldogs</h1>
         </div>
     </header>
     
@@ -61,74 +129,80 @@
             <div class="absolute inset-0 bg-gradient-to-r from-deep-brown/70 to-brick-red/70"></div>
         </div>
         <div class="relative z-10 flex items-center justify-center py-16 px-4">
-            <div class="text-center text-white p-8 max-w-3xl  rounded-lg">
-                <h2 class="text-4xl md:text-5xl font-bold mt-48 mb-6 drop-shadow-md">Unleash Your Family's History</h2>
-                <a href="contact.html" class="inline-block bg-deep-brown hover:bg-light-brown text-white font-bold py-3 px-6 rounded transition-colors">Get Started Today</a>
+            <div class="text-center text-white p-8 max-w-3xl rounded-lg animate-slide-up">
+                <h2 class="text-4xl md:text-6xl font-bold font-heading mt-48 mb-6 text-shadow text-white">Unleash Your Family's History</h2>
+                <a href="contact.html" class="inline-block bg-deep-brown hover:bg-light-brown text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 pulse-on-hover text-lg shadow-lg">
+                    Get Started Today
+                </a>
             </div>
         </div>
     </div>
     
     <!-- Services Section -->
-<section id="services" class="py-12 px-6 max-w-6xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold text-brick-red text-center mb-8">Our Services</h2>
+<section id="services" class="py-16 px-6 max-w-6xl mx-auto animate-fade-in">
+    <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold font-heading gradient-text mb-4">Our Expert Services</h2>
+        <p class="text-xl text-deep-brown font-light max-w-2xl mx-auto">Discover how our specialized genealogy services can unlock your family's unique story</p>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <a href="breakthrough-service.html" class="bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-brick-red hover:-translate-y-1 transition-transform block">
-            <div class="h-48 overflow-hidden">
-                <img src="./assets/home/brick-wall.jpg" alt="Breaking through genealogy brick walls" class="w-full h-full object-cover">
+        <a href="breakthrough-service.html" class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-brick-red card-hover block group">
+            <div class="h-48 overflow-hidden relative">
+                <img src="./assets/home/brick-wall.jpg" alt="Breaking through genealogy brick walls" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                
             </div>
             <div class="p-6">
-                <h3 class="text-xl font-bold text-deep-brown mb-4">Brick Walls</h3>
-                <p>Having successfully smashed many long-standing brick walls, we can help you 
+                <h3 class="text-2xl font-bold font-heading text-deep-brown mb-4 group-hover:text-brick-red transition-colors">Brick Walls</h3>
+                <p class="text-gray-700 leading-relaxed">Having successfully smashed many long-standing brick walls, we can help you 
                     shatter yours. New perspectives, unique collections, and a deep look at genetics 
                     can all lead to new discoveries. If you are stumped by a common name, missing records, 
                     or an NPE (non-paternity event) let us piece together the evidence you need to move with 
                     confidence to the next generation.</p>
-                <div class="text-center mt-4">
-                    <span class="inline-block bg-brick-red hover:bg-deep-brown text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Learn More</span>
+                <div class="text-center mt-6">
+                    <span class="inline-block bg-gradient-to-r from-brick-red to-light-brick hover:from-deep-brown hover:to-brick-red text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 text-lg shadow-md">Learn More →</span>
                 </div>
             </div>
         </a>
-        <a href="research-service.html" class="bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-brick-red hover:-translate-y-1 transition-transform block">
-            <div class="h-48 overflow-hidden">
-                <img src="./assets/home/research.jpg" alt="Family tree construction" class="w-full h-full object-cover">
+        <a href="research-service.html" class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-brick-red card-hover block group">
+            <div class="h-48 overflow-hidden relative">
+                <img src="./assets/home/research.jpg" alt="Family tree construction" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
             </div>
             <div class="p-6">
-                <h3 class="text-xl font-bold text-deep-brown mb-4">Research</h3>
-                <p>Whether you are starting from scratch or have been researching for years, 
+                <h3 class="text-2xl font-bold font-heading text-deep-brown mb-4 group-hover:text-brick-red transition-colors">Research</h3>
+                <p class="text-gray-700 leading-relaxed">Whether you are starting from scratch or have been researching for years, 
                     we can help. We have extensive experience looking at all types of records and 
                     making difficult connections. Local to a FamilySearch Library and the Clayton 
                     Genealogy Library, we have access to a wealth of records not available online.
                 </p>
-                <div class="text-center mt-4">
-                    <span class="inline-block bg-brick-red hover:bg-deep-brown text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Learn More</span>
+                <div class="text-center mt-6">
+                    <span class="inline-block bg-gradient-to-r from-brick-red to-light-brick hover:from-deep-brown hover:to-brick-red text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 text-lg shadow-md">Learn More →</span>
                 </div>
             </div>
         </a>
         
-        <a href="dna-analysis-service.html" class="bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-brick-red hover:-translate-y-1 transition-transform block">
-            <div class="h-48 overflow-hidden">
-                <img src="./assets/home/dna.jpg" alt="DNA analysis services" class="w-full h-full object-cover">
+        <a href="dna-analysis-service.html" class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-brick-red card-hover block group">
+            <div class="h-48 overflow-hidden relative">
+                <img src="./assets/home/dna.jpg" alt="DNA analysis services" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
             </div>
             <div class="p-6">
-                <h3 class="text-xl font-bold text-deep-brown mb-4">DNA Analysis</h3>
-                <p>Match lists, chromosome mapping, the Big Y- we can make sense of it all. 
+                <h3 class="text-2xl font-bold font-heading text-deep-brown mb-4 group-hover:text-brick-red transition-colors">DNA Analysis</h3>
+                <p class="text-gray-700 leading-relaxed">Match lists, chromosome mapping, the Big Y- we can make sense of it all. 
                     We use your genes to help connect you with the past and present.</p>
-                <div class="text-center mt-4">
-                    <span class="inline-block bg-brick-red hover:bg-deep-brown text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Learn More</span>
+                <div class="text-center mt-6">
+                    <span class="inline-block bg-gradient-to-r from-brick-red to-light-brick hover:from-deep-brown hover:to-brick-red text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 text-lg shadow-md">Learn More →</span>
                 </div>
             </div>
         </a>
-        <a href="family-history-books-service.html" class="bg-white rounded-lg shadow-md overflow-hidden border-t-4 border-brick-red hover:-translate-y-1 transition-transform block">
-            <div class="h-48 overflow-hidden">
-                <img src="./assets/home/history-book.jpg" alt="Family history book creation" class="w-full h-full object-cover">
+        <a href="family-history-books-service.html" class="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-brick-red card-hover block group">
+            <div class="h-48 overflow-hidden relative">
+                <img src="./assets/home/history-book.jpg" alt="Family history book creation" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
             </div>
             <div class="p-6">
-                <h3 class="text-xl font-bold text-deep-brown mb-4">Heirloom Books</h3>
-                <p>If you have inherited a pile of old photos and have no idea what to do 
+                <h3 class="text-2xl font-bold font-heading text-deep-brown mb-4 group-hover:text-brick-red transition-colors">Heirloom Books</h3>
+                <p class="text-gray-700 leading-relaxed">If you have inherited a pile of old photos and have no idea what to do 
                     with them, let us turn them into a beautiful, custom, interactive book 
                     for generations to enjoy. Unique- all photos are easily removable for sharing. </p>
-                <div class="text-center mt-4">
-                    <span class="inline-block bg-brick-red hover:bg-deep-brown text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Learn More</span>
+                <div class="text-center mt-6">
+                    <span class="inline-block bg-gradient-to-r from-brick-red to-light-brick hover:from-deep-brown hover:to-brick-red text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 text-lg shadow-md">Learn More →</span>
                 </div>
             </div>
         </a>
@@ -136,53 +210,89 @@
 </section>
     
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-12 px-6 bg-light-brown">
-        <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-8">Success Stories</h2>
+    <section id="testimonials" class="py-16 px-6 bg-gradient-to-br from-light-brown via-deep-brown to-brick-red animate-fade-in">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold font-heading text-white text-shadow mb-4">Success Stories</h2>
+            <p class="text-xl text-white/90 font-light max-w-2xl mx-auto">See how we've helped families unlock their heritage and connect with their past</p>
+        </div>
         <div class="max-w-4xl mx-auto space-y-8">
-            <div class="bg-white p-8 rounded-lg shadow-md relative">
-                <p class="mb-4 relative">
-                    <span class="absolute -top-5 left-5 text-6xl text-light-brick">"</span>
-                    After hitting a dead end with my great-grandfather for over 15 years, Brick Wall Bulldogs  found his immigration records and traced his family back three more generations in Ireland. I finally have the answers I've been searching for!
-                </p>
-                <div class="text-right font-bold text-deep-brown">- Margaret H., Boston, MA</div>
+            <div class="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-xl relative card-hover border-l-4 border-brick-red">
+                <div class="flex items-start gap-4">
+                    <div class="bg-gradient-to-br from-brick-red to-light-brick p-3 rounded-full text-white text-2xl">
+                        “
+                    </div>
+                    <div class="flex-1">
+                        <p class="mb-4 text-gray-700 leading-relaxed italic">
+                            "After hitting a dead end with my great-grandfather for over 15 years, Brick Wall Bulldogs found his immigration records and traced his family back three more generations in Ireland. I finally have the answers I've been searching for!"
+                        </p>
+                        <div class="text-right font-bold text-deep-brown">— Margaret H., Boston, MA</div>
+                    </div>
+                </div>
             </div>
-            <div class="bg-white p-8 rounded-lg shadow-md relative">
-                <p class="mb-4 relative">
-                    <span class="absolute -top-5 left-5 text-6xl text-light-brick">"</span>
-                    I had no idea where to start with my family history. The team at Brick Wall Bulldogs  not only built my family tree but discovered a connection to historical events I never knew about. The family history book they created is now our most treasured heirloom.
-                </p>
-                <div class="text-right font-bold text-deep-brown">- James T., Portland, OR</div>
+            <div class="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-xl relative card-hover border-l-4 border-deep-brown">
+                <div class="flex items-start gap-4">
+                    <div class="bg-gradient-to-br from-deep-brown to-light-brown p-3 rounded-full text-white text-2xl">
+                        “
+                    </div>
+                    <div class="flex-1">
+                        <p class="mb-4 text-gray-700 leading-relaxed italic">
+                            "I had no idea where to start with my family history. The team at Brick Wall Bulldogs not only built my family tree but discovered a connection to historical events I never knew about. The family history book they created is now our most treasured heirloom."
+                        </p>
+                        <div class="text-right font-bold text-deep-brown">— James T., Portland, OR</div>
+                    </div>
+                </div>
             </div>
-            <div class="bg-white p-8 rounded-lg shadow-md relative">
-                <p class="mb-4 relative">
-                    <span class="absolute -top-5 left-5 text-6xl text-light-brick">"</span>
-                    When DNA testing revealed unexpected results, I was confused and overwhelmed. Brick Wall Bulldogs  helped me make sense of it all and uncovered a fascinating family secret that explained everything. Their expertise was invaluable.
-                </p>
-                <div class="text-right font-bold text-deep-brown">- Sophia R., Chicago, IL</div>
+            <div class="bg-white/95 backdrop-blur-sm p-8 rounded-xl shadow-xl relative card-hover border-l-4 border-light-brick">
+                <div class="flex items-start gap-4">
+                    <div class="bg-gradient-to-br from-light-brick to-brick-red p-3 rounded-full text-white text-2xl">
+                        “
+                    </div>
+                    <div class="flex-1">
+                        <p class="mb-4 text-gray-700 leading-relaxed italic">
+                            "When DNA testing revealed unexpected results, I was confused and overwhelmed. Brick Wall Bulldogs helped me make sense of it all and uncovered a fascinating family secret that explained everything. Their expertise was invaluable."
+                        </p>
+                        <div class="text-right font-bold text-deep-brown">— Sophia R., Chicago, IL</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="about-summary" class="py-12 px-6 max-w-4xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-brick-red text-center mb-8">About Us</h2>
-        <div class="text-center bg-white p-8 rounded-lg shadow-md">
-            <img src="./assets/bulldog_logo.png" alt="Brick Wall Bulldogs Logo" class="w-24 h-24 mx-auto mb-6 rounded-full bg-light-brown p-2">
-            <p class="text-lg mb-4">We are a mother-daughter duo, passionate about connection and discovery. I have been researching for 
+    <section id="about-summary" class="py-16 px-6 max-w-4xl mx-auto animate-fade-in">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold font-heading gradient-text mb-4">Meet Our Team</h2>
+            <p class="text-xl text-deep-brown font-light">A passionate mother-daughter duo dedicated to unlocking family mysteries</p>
+        </div>
+        <div class="text-center bg-gradient-to-br from-white to-cream p-10 rounded-2xl shadow-xl card-hover border border-light-brown/20">
+            <div class="relative inline-block mb-6">
+                <img src="./assets/home/aboutus_small.jpg" alt="Brick Wall Bulldogs Logo" class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-light-brown to-deep-brown p-3 service-icon">
+            </div>
+            <p class="text-lg mb-6 text-gray-700 leading-relaxed">We are a mother-daughter duo, passionate about connection and discovery. I have been researching for 
                                     40 years, earning my PG in Genealogy and Paleography from University of Strathclyde in 2024. My teenage 
                                     daughter has also caught the research bug, so you can benefit from her youthful technological skills and 
                                     her uncanny ability to make connections! </p>
-            <p class="text-lg mb-6">Our ancestors are so much more than names and dates! Let us help you understand who they were and the rich lives they lived.</p>
-            <a href="about-us.html" class="inline-block bg-deep-brown hover:bg-light-brown text-white font-bold py-3 px-6 rounded transition-colors">Learn More About Us</a>
+            <p class="text-xl mb-8 font-medium text-deep-brown">Our ancestors are so much more than names and dates! Let us help you understand who they were and the rich lives they lived.</p>
+            <a href="about-us.html" class="inline-block bg-gradient-to-r from-deep-brown to-brick-red hover:from-brick-red hover:to-deep-brown text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-lg">
+                Learn More About Us
+            </a>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-12 px-6 bg-deep-brown">
-        <div class="max-w-4xl mx-auto text-center text-white">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Begin Your Journey?</h2>
-            <p class="text-xl mb-8">Explore our process or contact us directly to get started with a free consultation.</p>
-            <div class="flex justify-center gap-4 flex-wrap">
-                <a href="contact.html" class="inline-block bg-brick-red hover:bg-light-brick text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Contact Us</a>
+    <section class="py-16 px-6 bg-gradient-to-r from-deep-brown via-brick-red to-deep-brown relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
+        <div class="max-w-4xl mx-auto text-center text-white relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold font-heading mb-6 text-shadow animate-slide-up">Ready to Begin Your Journey?</h2>
+            <p class="text-xl mb-10 font-light text-white/90 max-w-2xl mx-auto leading-relaxed">Explore our process or contact us directly to get started with a free consultation and unlock the mysteries of your family history.</p>
+            <div class="flex justify-center gap-6 flex-wrap">
+                <a href="contact.html" class="inline-block bg-gradient-to-r from-brick-red to-light-brick hover:from-white hover:to-cream hover:text-deep-brown text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl text-lg pulse-on-hover border-2 border-transparent hover:border-brick-red">
+                    Start Your Discovery
+                </a>
+            </div>
+            <div class="mt-8 flex justify-center items-center gap-2 text-white/80">
+                <span class="w-2 h-2 bg-white/60 rounded-full animate-pulse"></span>
+                <span class="text-sm font-light">Free consultation included</span>
+                <span class="w-2 h-2 bg-white/60 rounded-full animate-pulse"></span>
             </div>
         </div>
     </section>

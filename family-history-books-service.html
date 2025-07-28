@@ -20,6 +20,244 @@
             }
         }
     </script>
+    <style>
+        .carousel-dot.active {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .carousel-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-btn {
+                padding: 0.5rem;
+            }
+            
+            .carousel-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        section {
+            padding: 50px 0;
+        }
+
+        .container {
+            max-width: 1044px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .carousel {
+        display: block;
+        text-align: left;
+        position: relative;
+        margin-bottom: 22px;
+        }
+        .carousel > input {
+        clip: rect(1px, 1px, 1px, 1px);
+        clip-path: inset(50%);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        }
+        .carousel > input:nth-of-type(6):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: -500%;
+        }
+        .carousel > input:nth-of-type(5):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: -400%;
+        }
+        .carousel > input:nth-of-type(4):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: -300%;
+        }
+        .carousel > input:nth-of-type(3):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: -200%;
+        }
+        .carousel > input:nth-of-type(2):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: -100%;
+        }
+        .carousel > input:nth-of-type(1):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: 0%;
+        }
+        .carousel > input:nth-of-type(1):checked ~ .carousel__thumbnails li:nth-of-type(1) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+        .carousel > input:nth-of-type(2):checked ~ .carousel__thumbnails li:nth-of-type(2) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+        .carousel > input:nth-of-type(3):checked ~ .carousel__thumbnails li:nth-of-type(3) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+        .carousel > input:nth-of-type(4):checked ~ .carousel__thumbnails li:nth-of-type(4) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+        .carousel > input:nth-of-type(5):checked ~ .carousel__thumbnails li:nth-of-type(5) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+        .carousel > input:nth-of-type(6):checked ~ .carousel__thumbnails li:nth-of-type(6) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+
+        .carousel__slides {
+        position: relative;
+        z-index: 1;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        box-sizing: border-box;
+        display: flex;
+        }
+
+        .carousel__slide {
+        position: relative;
+        display: block;
+        flex: 1 0 100%;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        transition: all 300ms ease-out;
+        box-sizing: border-box;
+        white-space: normal;
+        }
+        .carousel__slide figure {
+        display: flex;
+        margin: 0;
+        }
+        .carousel__slide div {
+        position: relative;
+        width: 100%;
+        }
+        .carousel__slide div:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: 66.6666666667%;
+        }
+        .carousel__slide div > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        }
+        .carousel__slide img {
+        display: block;
+        flex: 1 1 auto;
+        object-fit: cover;
+        }
+        .carousel__slide figcaption {
+        align-self: flex-end;
+        padding: 20px 20px 0 20px;
+        flex: 0 0 auto;
+        width: 25%;
+        min-width: 150px;
+        }
+        .carousel__slide .credit {
+        margin-top: 1rem;
+        color: rgba(0, 0, 0, 0.5);
+        display: block;
+        }
+        .carousel__slide.scrollable {
+        overflow-y: scroll;
+        }
+
+        .carousel__thumbnails {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        margin: 0 -10px;
+        }
+        .carousel__slides + .carousel__thumbnails {
+        margin-top: 20px;
+        }
+        .carousel__thumbnails li {
+        flex: 1 1 auto;
+        max-width: calc((100% / 6) - 20px);
+        margin: 0 10px;
+        transition: all 300ms ease-in-out;
+        }
+        .carousel__thumbnails label {
+        display: block;
+        position: relative;
+        }
+        .carousel__thumbnails label:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: 100%;
+        }
+        .carousel__thumbnails label > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        }
+        .carousel__thumbnails label:hover, .carousel__thumbnails label:focus {
+        cursor: pointer;
+        }
+        .carousel__thumbnails label:hover img, .carousel__thumbnails label:focus img {
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.25);
+        transition: all 300ms ease-in-out;
+        }
+        .carousel__thumbnails img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .modal.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .modal:not(.hidden) {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .modal-content {
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .modal:not(.hidden) .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-gallery-image {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .modal-gallery-image:hover {
+            transform: scale(1.02);
+        }
+        
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 20px;
+                max-height: calc(100vh - 40px);
+            }
+        }
+    </style>
 </head>
 <body class="bg-cream text-gray-800 font-sans">
     <header class="bg-brick-red text-white p-4 text-center">
@@ -54,7 +292,7 @@
     
     <div class="relative w-full" style="min-height: 20rem;">
         <div class="absolute inset-0 z-0">
-            <img src="./assets/history-book-hero.png" alt="Beautifully designed open family history book" class="w-full h-full object-cover"> <div class="absolute inset-0 bg-gradient-to-r from-deep-brown/70 to-brick-red/70"></div>
+            <img src="./assets/heritagebooks/wedding-book-spread.jpg" alt="Abstract representation of DNA strands and family connections" class="w-full h-full object-cover"> <div class="absolute inset-0 bg-gradient-to-r from-deep-brown/70 to-brick-red/70"></div>
         </div>
         <div class="relative z-10 flex items-center justify-center py-16 px-4">
             <div class="text-center text-white p-8 max-w-3xl">
@@ -67,7 +305,12 @@
     <section class="py-12 px-6 max-w-4xl mx-auto">
         <div class="bg-white rounded-lg shadow-md p-8 mb-10">
             <h3 class="text-2xl font-bold text-brick-red mb-4">Preserve Your Heritage in Print</h3>
-            <p class="mb-4">A Family History Book is more than just a collection of names and dates; it's a cherished heirloom that brings your ancestors' stories to life for current and future generations. Our service helps you to:</p>
+            <p class="mb-4">If you have precious photos sitting in a box, let us bring them into the light. We can display 
+                them in a way the whole family can enjoy. Old photographs can illustrate so much of your family's story. 
+                The small details in a photo can hold clues to family connections, socio-economic status, occupations, hobbies, 
+                and more. Our bespoke albums are unique in that no photos are ever glued. Each photo is easily removable to share 
+                and to make sure precious writing on the back is accessible.  Every album we design is constructed with the highest 
+                quality archival materials. When stored at room temperature, they will last for generations.  Our service helps you to:</p>
             <ul class="list-disc pl-6 mb-6 space-y-2">
                 <li><strong>Showcase Your Research:</strong> Present your genealogical findings in an engaging and accessible format.</li>
                 <li><strong>Integrate Rich Content:</strong> Combine narratives, photographs, scanned documents, maps, and family trees.</li>
@@ -78,143 +321,141 @@
             <p>We work with you to transform your hard-earned research into a professionally designed and written volume that honors your family's journey.</p>
         </div>
         
-        <div class="bg-white rounded-lg shadow-md p-8 mb-10">
-            <h3 class="text-2xl font-bold text-brick-red mb-4">Our Book Creation Process</h3>
-            <p class="mb-6">From initial concept to finished product, we guide you every step of the way:</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div class="border-l-4 border-light-brick pl-4">
-                    <h4 class="font-bold text-deep-brown mb-2">Consultation & Planning</h4>
-                    <p>We discuss your vision for the book, review your existing research and materials, and outline the scope and style.</p>
-                </div>
-                <div class="border-l-4 border-light-brick pl-4">
-                    <h4 class="font-bold text-deep-brown mb-2">Content Organization & Writing</h4>
-                    <p>We help organize your information, write engaging narratives, or edit your existing text to ensure clarity and flow.</p>
-                </div>
-                <div class="border-l-4 border-light-brick pl-4">
-                    <h4 class="font-bold text-deep-brown mb-2">Design & Layout</h4>
-                    <p>Our design process focuses on creating an attractive, easy-to-read layout that incorporates your photos, documents, and charts seamlessly.</p>
-                </div>
-                <div class="border-l-4 border-light-brick pl-4">
-                    <h4 class="font-bold text-deep-brown mb-2">Review & Production</h4>
-                    <p>You'll have opportunities to review and approve proofs before we manage the printing and binding process to your specifications.</p>
-                </div>
-            </div>
-            <p>Our collaborative approach ensures your family history book is a true reflection of your heritage and a source of pride for years to come.</p>
-        </div>
-        
+        <!-- Book Display Carousel -->
         <h3 class="text-2xl font-bold text-brick-red mb-6">Family Legacies We've Captured</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <div class="h-56 overflow-hidden">
-                    <img src="./assets/case-study-book1.jpg" alt="Pages from a custom family history book showing photos and text" class="w-full h-full object-cover"> </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-deep-brown mb-2">The Pioneer Story</h4>
-                    <p class="mb-4">Susan had decades of research on her ancestors who migrated West in the 19th century, including diaries, letters, and photos.</p>
-                    <h5 class="font-bold text-sm text-brick-red mb-2">Our Collaboration:</h5>
-                    <p>We helped Susan organize her materials, wrote connecting narratives, designed a classic layout, and produced a beautiful hardcover book that wove together her ancestors' personal accounts with historical context, creating a treasured family chronicle.</p>
+        <div class="bg-white rounded-lg shadow-md mb-10">
+            <section>
+                <div class="container">
+                    <div class="carousel">
+                        <input type="radio" name="slides" checked="checked" id="slide-1">
+                        <input type="radio" name="slides" id="slide-2">
+                        <input type="radio" name="slides" id="slide-3">
+                        <input type="radio" name="slides" id="slide-4">
+                        <input type="radio" name="slides" id="slide-5">
+                        <input type="radio" name="slides" id="slide-6">
+                        <ul class="carousel__slides">
+                            <li class="carousel__slide">
+                                <figure>
+                                    <div>
+                                        <img src="./assets/heritagebooks/wedding-book-ceremony.jpg" alt="">
+                                    </div>
+                                    <figcaption>
+                                        Capture beautiful memories of your grandparents' wedding.
+                                        <br/>
+                                        <button type="button" class="inline-block bg-brick-red hover:bg-light-brick text-white font-bold py-3 px-8 rounded-lg transition-colors text-md" onclick="openModal('wedding')">See More</button>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="carousel__slide">
+                                <figure>
+                                    <div>
+                                        <img src="./assets/heritagebooks/wedding-book-front.jpg" alt="">
+                                    </div>
+                                    <figcaption>
+                                        A beautifully bound wedding book with elegant design and layout.
+                                        <br/>
+                                        <button type="button" class="inline-block bg-brick-red hover:bg-light-brick text-white font-bold py-3 px-8 rounded-lg transition-colors text-md" onclick="openModal('wedding')">See More</button>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="carousel__slide">
+                                <figure>
+                                    <div>
+                                        <img src="./assets/heritagebooks/wedding-book-jones.jpg" alt="">
+                                    </div>
+                                    <figcaption>
+                                        The Jones family wedding album featuring timeless moments.
+                                        <br/>
+                                        <button type="button" class="inline-block bg-brick-red hover:bg-light-brick text-white font-bold py-3 px-8 rounded-lg transition-colors text-md" onclick="openModal('wedding')">See More</button>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="carousel__slide">
+                                <figure>
+                                    <div>
+                                        <img src="./assets/heritagebooks/ella-mae-book-young.jpg" alt="">
+                                    </div>
+                                    <figcaption>
+                                        Ella Mae's life story book capturing her journey through the decades.
+                                        <br/>
+                                        <button type="button" class="inline-block bg-brick-red hover:bg-light-brick text-white font-bold py-3 px-8 rounded-lg transition-colors text-md" onclick="openModal('ella')">See More</button>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="carousel__slide">
+                                <figure>
+                                    <div>
+                                        <img src="./assets/heritagebooks/millitary-book-dad.jpg" alt="">
+                                    </div>
+                                    <figcaption>
+                                        Military service record book honoring Dad's years of service.
+                                        <br/>
+                                        <button type="button" class="inline-block bg-brick-red hover:bg-light-brick text-white font-bold py-3 px-8 rounded-lg transition-colors text-md" onclick="openModal('military')">See More</button>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="carousel__slide">
+                                <figure>
+                                    <div>
+                                        <img src="./assets/heritagebooks/millitary-book-buhler.jpg" alt="">
+                                    </div>
+                                    <figcaption>
+                                        The Buhler family military heritage book preserving wartime memories.
+                                        <br/>
+                                        <button type="button" class="inline-block bg-brick-red hover:bg-light-brick text-white font-bold py-3 px-8 rounded-lg transition-colors text-md" onclick="openModal('military')">See More</button>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>    
+                        <ul class="carousel__thumbnails">
+                            <li>
+                                <label for="slide-1"><img src="./assets/heritagebooks/wedding-book-ceremony.jpg" alt=""></label>
+                            </li>
+                            <li>
+                                <label for="slide-2"><img src="./assets/heritagebooks/wedding-book-front.jpg" alt=""></label>
+                            </li>
+                            <li>
+                                <label for="slide-3"><img src="./assets/heritagebooks/wedding-book-jones.jpg" alt=""></label>
+                            </li>
+                            <li>
+                                <label for="slide-4"><img src="./assets/heritagebooks/ella-mae-book-young.jpg" alt=""></label>
+                            </li>
+                            <li>
+                                <label for="slide-5"><img src="./assets/heritagebooks/millitary-book-dad.jpg" alt=""></label>
+                            </li>
+                            <li>
+                                <label for="slide-6"><img src="./assets/heritagebooks/millitary-book-buhler.jpg" alt=""></label>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <div class="h-56 overflow-hidden">
-                    <img src="./assets/case-study-book2.jpg" alt="A simpler family history photo book or album style" class="w-full h-full object-cover"> </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-deep-brown mb-2">A Grandparent's Life</h4>
-                    <p class="mb-4">Mark wanted to create a special gift for his grandmother's 90th birthday, compiling photos and stories from her life and immediate ancestors.</p>
-                    <h5 class="font-bold text-sm text-brick-red mb-2">Our Collaboration:</h5>
-                    <p>We designed a visually rich, photo-centric book with captions and short anecdotes, focusing on key life events. The result was a heartfelt tribute that was easily shared with all family members during the celebration.</p>
-                </div>
-            </div>
+            </section>
         </div>
-        
-        <div class="bg-light-brown rounded-lg shadow-md p-8">
-            <h3 class="text-2xl font-bold text-white mb-6">Family History Book Packages</h3>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h4 class="font-bold text-xl text-deep-brown mb-2">Digital Family Story</h4>
-                    <p class="text-gray-600 font-bold mb-4">$995+</p>
-                    <ul class="mb-6 space-y-2">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Organization of existing research & digital materials.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Basic narrative writing (up to 5,000 words).</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Professionally designed PDF e-book (up to 50 pages).</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>(Printing options available at additional cost)</span>
-                        </li>
-                    </ul>
-                    <a href="index.html#contact" class="block text-center bg-brick-red hover:bg-light-brick text-white font-bold py-2 px-4 rounded transition-colors">Get Started</a>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-md p-6 relative border-2 border-brick-red">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brick-red text-white text-sm font-bold py-1 px-3 rounded-full">Most Popular</div>
-                    <h4 class="font-bold text-xl text-deep-brown mb-2">Classic Heritage Book</h4>
-                    <p class="text-gray-600 font-bold mb-4">$2,500+ (plus printing costs)</p>
-                    <ul class="mb-6 space-y-2">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Comprehensive content organization & narrative writing/editing (up to 15,000 words).</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Custom book design & layout (up to 150 pages).</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Inclusion of photos, documents, charts. Indexing.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Print-ready files & print management assistance.</span>
-                        </li>
-                    </ul>
-                    <a href="index.html#contact" class="block text-center bg-brick-red hover:bg-light-brick text-white font-bold py-2 px-4 rounded transition-colors">Get Started</a>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h4 class="font-bold text-xl text-deep-brown mb-2">Heirloom Legacy Volume</h4>
-                    <p class="text-gray-600 font-bold mb-4">Custom Quote</p>
-                    <ul class="mb-6 space-y-2">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Fully customized book project of any scope or complexity.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Original research, extensive writing, premium design.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Choice of binding, paper, and finishing options.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-brick-red mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span>Full project management from start to finish.</span>
-                        </li>
-                    </ul>
-                    <a href="index.html#contact" class="block text-center bg-brick-red hover:bg-light-brick text-white font-bold py-2 px-4 rounded transition-colors">Request a Quote</a>
-                </div>
-            </div>
-            <p class="text-white text-center mt-6 text-sm">Note: Printing costs are separate and vary based on book specifications and quantity.</p>
-        </div>
+           
     </section>
     
     <section class="py-12 px-6 bg-deep-brown">
         <div class="max-w-4xl mx-auto text-center text-white">
             <h3 class="text-3xl font-bold mb-6">Ready to Immortalize Your Family's Story?</h3>
             <p class="text-xl mb-8">Let us help you create a beautiful family history book that will be treasured for generations.</p>
-            <a href="index.html#contact" class="inline-block bg-brick-red hover:bg-light-brick text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Start Your Book Project</a>
+            <a href="contact.html" class="inline-block bg-brick-red hover:bg-light-brick text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">Start Your Book Project</a>
         </div>
     </section>
+    
+    <!-- Modal Structure -->
+    <div id="imageModal" class="modal hidden fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center p-4">
+        <div class="modal-content bg-white rounded-lg max-w-4xl max-h-90vh w-full overflow-hidden">
+            <div class="modal-header bg-brick-red text-white p-4 flex justify-between items-center">
+                <h3 id="modalTitle" class="text-xl font-bold">Book Gallery</h3>
+                <button onclick="closeModal()" class="text-white hover:text-gray-300 text-2xl">&times;</button>
+            </div>
+            <div class="modal-body p-6 overflow-y-auto" style="max-height: 70vh;">
+                <div id="modalGallery" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Images will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
     
     <footer class="bg-gray-800 text-white text-center p-8">
         <div class="flex justify-center gap-6 mb-6">
@@ -245,5 +486,86 @@
         </div>
         <p>&copy; 2025 Brick Wall Bulldogs Genealogy Services. All rights reserved.</p>
     </footer>
+    
+    <script>
+        // Book gallery data with additional images for each book type
+        const bookGalleries = {
+            wedding: {
+                title: "Wedding Heritage Books",
+                images: [
+                    { src: "./assets/heritagebooks/wedding-book-ceremony.jpg", alt: "Wedding ceremony moments" },
+                    { src: "./assets/heritagebooks/wedding-book-front.jpg", alt: "Wedding book cover design" },
+                    { src: "./assets/heritagebooks/wedding-book-jones.jpg", alt: "Jones family wedding album" },
+                    { src: "./assets/heritagebooks/wedding-book-spread.jpg", alt: "Wedding book spread layout" }
+                ]
+            },
+            ella: {
+                title: "Life Story Books",
+                images: [
+                    { src: "./assets/heritagebooks/ella-mae-book-young.jpg", alt: "Ella Mae in her youth" },
+                    { src: "./assets/heritagebooks/wedding-book-ceremony.jpg", alt: "Family celebration moments" },
+                    { src: "./assets/heritagebooks/wedding-book-spread.jpg", alt: "Life story book layout" }
+                ]
+            },
+            military: {
+                title: "Military Heritage Books",
+                images: [
+                    { src: "./assets/heritagebooks/millitary-book-dad.jpg", alt: "Military service record" },
+                    { src: "./assets/heritagebooks/millitary-book-buhler.jpg", alt: "Buhler family military history" },
+                    { src: "./assets/heritagebooks/wedding-book-front.jpg", alt: "Military heritage book cover" },
+                    { src: "./assets/heritagebooks/ella-mae-book-young.jpg", alt: "Family military traditions" }
+                ]
+            }
+        };
+        
+        function openModal(bookType) {
+            const modal = document.getElementById('imageModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalGallery = document.getElementById('modalGallery');
+            
+            // Get the book data
+            const bookData = bookGalleries[bookType];
+            if (!bookData) return;
+            
+            // Set the title
+            modalTitle.textContent = bookData.title;
+            
+            // Clear previous images
+            modalGallery.innerHTML = '';
+            
+            // Add images to gallery
+            bookData.images.forEach(image => {
+                const imgElement = document.createElement('img');
+                imgElement.src = image.src;
+                imgElement.alt = image.alt;
+                imgElement.className = 'modal-gallery-image w-full h-auto object-cover';
+                modalGallery.appendChild(imgElement);
+            });
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore background scrolling
+        }
+        
+        // Close modal when clicking outside the content
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
