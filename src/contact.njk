@@ -1,0 +1,147 @@
+---
+layout: base.njk
+title: Contact Us
+---
+
+    <div class="relative w-full" style="min-height: 24rem;">
+        <div class="absolute inset-0 z-0">
+            <img src="/assets/contact/getintouch.jpg" alt="An old-fashioned desk with a telephone and letters" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-deep-brown/70 to-brick-red/70"></div>
+        </div>
+        <div class="relative z-10 flex items-center justify-center py-16 px-4">
+            <div class="text-center text-white p-8 max-w-3xl scroll-reveal">
+                <h2 class="hero-title text-4xl md:text-5xl font-bold font-heading mb-6 text-shadow">Get In Touch</h2>
+                <p class="text-xl mb-4 text-shadow-light">We're here to help you break through your genealogy roadblocks. Reach out to us today for a free consultation.</p>
+            </div>
+        </div>
+    </div>
+    
+    <section id="contact-section" class="py-12 px-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- How It Works Column (Left) -->
+            <div class="lg:col-span-1 bg-white rounded-xl shadow-xl p-8 card-hover scroll-reveal border-t-4 border-brick-red">
+                <h3 class="text-2xl font-bold font-heading gradient-text mb-6">Our Process at a Glance</h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4 items-start process-step">
+                        <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-brick-red to-light-brick text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">1</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-deep-brown mb-2">Initial Consultation</h4>
+                            <p class="text-gray-700">We start with a free chat to understand your goals and what you already know.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start process-step">
+                        <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-brick-red to-light-brick text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">2</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-deep-brown mb-2">Research Plan</h4>
+                            <p class="text-gray-700">We'll create a customized plan outlining the scope, timeline, and budget for your project.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start process-step">
+                        <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-brick-red to-light-brick text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">3</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-deep-brown mb-2">We Get to Work</h4>
+                            <p class="text-gray-700">Our team meticulously researches archives, databases, and other resources to find your answers.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start process-step">
+                        <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-brick-red to-light-brick text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">4</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-deep-brown mb-2">Progress Updates</h4>
+                            <p class="text-gray-700">You'll receive regular updates, keeping you informed of our discoveries.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start process-step">
+                        <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-brick-red to-light-brick text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">5</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-deep-brown mb-2">Comprehensive Results</h4>
+                            <p class="text-gray-700">We deliver a detailed report with all findings and a fully referenced research log.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form & Info Column (Right, Stacked) -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl shadow-xl p-8 card-hover scroll-reveal border-t-4 border-deep-brown">
+                    <h3 class="text-2xl font-bold font-heading gradient-text mb-6">Send Us a Message</h3>
+                    <form>
+                        <div class="mb-6">
+                            <label for="name" class="block mb-2 font-bold text-deep-brown">Name</label>
+                            <input type="text" id="name" class="form-input w-full p-4 rounded-lg focus:outline-none" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block mb-2 font-bold text-deep-brown">Email</label>
+                            <input type="email" id="email" class="form-input w-full p-4 rounded-lg focus:outline-none" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block mb-2 font-bold text-deep-brown">Phone (Optional)</label>
+                            <input type="tel" id="phone" class="form-input w-full p-4 rounded-lg focus:outline-none">
+                        </div>
+                        <div class="mb-6">
+                            <label for="service" class="block mb-2 font-bold text-deep-brown">Service Interested In</label>
+                            <select id="service" class="form-input w-full p-4 rounded-lg focus:outline-none">
+                                <option value="brick-wall">Brick Wall Breakthrough</option>
+                                <option value="family-tree">Family Tree Construction</option>
+                                <option value="document">Document Discovery</option>
+                                <option value="dna">DNA Analysis</option>
+                                <option value="ancestry">Ancestry Research</option>
+                                <option value="book">Family History Book</option>
+                                <option value="other">Other (Please specify)</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block mb-2 font-bold text-deep-brown">Tell Us About Your Research Needs</label>
+                            <textarea id="message" class="form-input w-full p-4 rounded-lg h-40 focus:outline-none" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-gradient-to-r from-brick-red to-light-brick hover:from-deep-brown hover:to-brick-red text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-lg pulse-on-hover">Send Message</button>
+                    </form>
+                </div>
+                <!-- Contact Info -->
+                <div class="bg-gradient-to-br from-deep-brown via-brick-red to-light-brown text-white p-8 rounded-xl shadow-xl card-hover scroll-reveal">
+                    <h3 class="text-2xl font-bold font-heading text-white mb-6 text-shadow">Brick Wall Bulldogs</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+                                </svg>
+                            </div>
+                            <span class="font-medium">(555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <span class="font-medium">info@brickwallbulldogs.com</span>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mt-1">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <span class="font-medium">123 Family Tree Lane<br>Ancestry City, AC 12345</span>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mt-1">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <span class="font-medium">
+                                Monday - Friday: 9am - 5pm<br>
+                                Saturday: 10am - 2pm<br>
+                                Sunday: Closed
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

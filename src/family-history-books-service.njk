@@ -1,0 +1,628 @@
+---
+layout: base.njk
+title: Family History Books
+---
+
+    <style>
+        .carousel-dot.active {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .carousel-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-btn {
+                padding: 0.5rem;
+            }
+            
+            .carousel-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        section {
+            padding: 50px 0;
+        }
+
+        .container {
+            max-width: 1044px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .carousel {
+        display: block;
+        text-align: left;
+        position: relative;
+        margin-bottom: 22px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        padding: 30px;
+        }
+        .carousel > input {
+        clip: rect(1px, 1px, 1px, 1px);
+        clip-path: inset(50%);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        }
+        .carousel > input:nth-of-type(6):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: -500%;
+        }
+        .carousel > input:nth-of-type(5):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: -400%;
+        }
+        .carousel > input:nth-of-type(4):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: -300%;
+        }
+        .carousel > input:nth-of-type(3):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: -200%;
+        }
+        .carousel > input:nth-of-type(2):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: -100%;
+        }
+        .carousel > input:nth-of-type(1):checked ~ .carousel__slides .carousel__slide:first-of-type {
+        margin-left: 0%;
+        }
+        .carousel > input:nth-of-type(1):checked ~ .carousel__thumbnails li:nth-of-type(1) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+        .carousel > input:nth-of-type(2):checked ~ .carousel__thumbnails li:nth-of-type(2) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+        .carousel > input:nth-of-type(3):checked ~ .carousel__thumbnails li:nth-of-type(3) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+        .carousel > input:nth-of-type(4):checked ~ .carousel__thumbnails li:nth-of-type(4) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+        .carousel > input:nth-of-type(5):checked ~ .carousel__thumbnails li:nth-of-type(5) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+        .carousel > input:nth-of-type(6):checked ~ .carousel__thumbnails li:nth-of-type(6) {
+        box-shadow: 0px 0px 0px 5px rgba(0, 0, 255, 0.5);
+        }
+
+        .carousel__slides {
+        position: relative;
+        z-index: 1;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        box-sizing: border-box;
+        display: flex;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(143, 60, 60, 0.15);
+        }
+
+        .carousel__slide {
+        position: relative;
+        display: block;
+        flex: 1 0 100%;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        transition: all 300ms ease-out;
+        box-sizing: border-box;
+        white-space: normal;
+        }
+        .carousel__slide figure {
+        display: flex;
+        margin: 0;
+        }
+        .carousel__slide div {
+        position: relative;
+        width: 100%;
+        }
+        .carousel__slide div:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: 66.6666666667%;
+        }
+        .carousel__slide div > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        }
+        .carousel__slide img {
+        display: block;
+        flex: 1 1 auto;
+        object-fit: cover;
+        }
+        .carousel__slide figcaption {
+        align-self: flex-end;
+        padding: 25px 25px 25px 25px;
+        flex: 0 0 auto;
+        width: 25%;
+        min-width: 150px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,249,250,0.98) 100%);
+        border-radius: 15px;
+        margin: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .carousel__slide .credit {
+        margin-top: 1rem;
+        color: rgba(0, 0, 0, 0.5);
+        display: block;
+        }
+        .carousel__slide.scrollable {
+        overflow-y: scroll;
+        }
+
+        .carousel__thumbnails {
+        list-style: none;
+        padding: 20px 0 0 0;
+        margin: 0;
+        display: flex;
+        margin: 0 -10px;
+        justify-content: center;
+        }
+        .carousel__slides + .carousel__thumbnails {
+        margin-top: 30px;
+        }
+        .carousel__thumbnails li {
+        flex: 1 1 auto;
+        max-width: calc((100% / 3) - 20px);
+        margin: 0 10px;
+        transition: all 300ms ease-in-out;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .carousel__thumbnails label {
+        display: block;
+        position: relative;
+        }
+        .carousel__thumbnails label:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: 100%;
+        }
+        .carousel__thumbnails label > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        }
+        .carousel__thumbnails label:hover, .carousel__thumbnails label:focus {
+        cursor: pointer;
+        }
+        .carousel__thumbnails label:hover img, .carousel__thumbnails label:focus img {
+        transform: scale(1.05);
+        box-shadow: 0 15px 30px rgba(143, 60, 60, 0.3);
+        transition: all 300ms ease-in-out;
+        }
+        .carousel__thumbnails li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        .carousel__thumbnails img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            backdrop-filter: blur(8px);
+        }
+        
+        .modal.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.95);
+        }
+        
+        .modal:not(.hidden) {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+        }
+        
+        .modal-content {
+            transform: scale(0.9) translateY(30px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,249,250,0.95) 100%);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .modal:not(.hidden) .modal-content {
+            transform: scale(1) translateY(0);
+        }
+        
+        .modal-gallery-image {
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+        }
+        
+        .modal-gallery-image:hover {
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 15px 40px rgba(143, 60, 60, 0.2);
+        }
+        
+        /* Enhanced Button Styles */
+        .carousel__slide figcaption button {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel__slide figcaption button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .carousel__slide figcaption button:hover::before {
+            left: 100%;
+        }
+        
+        .modal-header {
+            position: relative;
+            background: linear-gradient(135deg, #8F3C3C, #d17878);
+            color: white;
+            border-radius: 20px 20px 0 0;
+            padding: 25px 30px;
+            border-bottom: none;
+        }
+        
+        .modal-header h3 {
+            color: white !important;
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            -webkit-text-fill-color: unset !important;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 15px;
+                max-height: calc(100vh - 30px);
+                width: calc(100vw - 30px);
+            }
+            
+            .carousel {
+                padding: 20px 15px;
+            }
+            
+            .carousel__slide figcaption {
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            .modal-header {
+                padding: 20px;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+
+    <div class="relative w-full" style="min-height: 32rem;">
+        <div class="absolute inset-0 z-0">
+            <img src="/assets/heritagebooks/book-spread.jpg" alt="Abstract representation of DNA strands and family connections" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-deep-brown/70 to-brick-red/70"></div>
+        </div>
+        <div class="relative z-10 flex items-center justify-center py-16 px-4">
+            <div class="text-center text-white p-8 max-w-3xl scroll-reveal">
+                <h2 class="hero-title text-4xl md:text-6xl font-bold font-heading mb-6 text-shadow">Family History Books</h2>
+                <p class="text-xl mb-4 text-shadow-light">Transform your research into a lasting legacy. We craft beautiful, custom-designed books that tell your family's unique story.</p>
+            </div>
+        </div>
+    </div>
+    
+    <section class="py-12 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-12 scroll-reveal">
+            <h2 class="text-4xl md:text-5xl font-bold font-heading gradient-text mb-4">Preserve Your Heritage in Print</h2>
+            <p class="text-xl text-deep-brown font-light max-w-2xl mx-auto">Transform your family's photos and stories into beautiful, lasting heirloom books</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-10 card-hover scroll-reveal border-t-4 border-brick-red">
+            <h3 class="text-3xl font-bold font-heading gradient-text mb-6">Bring Your Photos Into the Light</h3>
+            <p class="mb-4">If you have precious photos sitting in a box, let us bring them into the light. We can display 
+                them in a way the whole family can enjoy. Old photographs can illustrate so much of your family's story. 
+                The small details in a photo can hold clues to family connections, socio-economic status, occupations, hobbies, 
+                and more. Our bespoke albums are unique in that no photos are ever glued. Each photo is easily removable to share 
+                and to make sure precious writing on the back is accessible.  Every album we design is constructed with the highest 
+                quality archival materials. When stored at room temperature, they will last for generations.  Our service helps you to:</p>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Showcase Your Research:</strong> Present your genealogical findings in an engaging and accessible format.</li>
+                <li><strong>Integrate Rich Content:</strong> Combine narratives, photographs, scanned documents, maps, and family trees.</li>
+                <li><strong>Tell Compelling Stories:</strong> Weave together factual data with historical context to create captivating ancestral narratives.</li>
+                <li><strong>Create a Lasting Legacy:</strong> Produce a tangible book that can be passed down through your family.</li>
+                <li><strong>Share with Relatives:</strong> Easily share your discoveries with family members near and far.</li>
+            </ul>
+            <p class="mb-6">We work with you to transform your hard-earned research into a professionally designed and written volume that honors your family's journey.</p>
+            <div class="text-center">
+                <a href="/contact/" class="inline-block bg-gradient-to-r from-brick-red to-light-brick hover:from-deep-brown hover:to-brick-red text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-lg pulse-on-hover">
+                    Start Your Book Project →
+                </a>
+            </div>
+        </div>
+        
+        <div class="section-divider"></div>
+
+        <!-- Book Display Carousel -->
+        <h3 class="text-4xl font-bold font-heading gradient-text mb-8 text-center scroll-reveal">Family Legacies We've Captured</h3>
+        <div class="bg-white rounded-xl shadow-xl mb-10 overflow-hidden card-hover scroll-reveal border-t-4 border-deep-brown">
+            <section>
+                <div class="container">
+                    <div class="carousel" data-size="5">
+                        <input type="radio" name="slides" checked="checked" id="slide-1">
+                        <input type="radio" name="slides" id="slide-2">
+                        <input type="radio" name="slides" id="slide-3">
+                        {# <input type="radio" name="slides" id="slide-4">
+                        <input type="radio" name="slides" id="slide-5"> #}
+                        
+                        <ul class="carousel__slides">
+                            <li class="carousel__slide">
+                                <figure>
+                                    <div>
+                                        <img src="/assets/heritagebooks/wedding/wedding-book-front.jpg" alt="Wedding Book Front Cover">
+                                        <button onclick="openModal('wedding')" class="absolute inset-0 w-full h-full bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                                            <span class="bg-white text-deep-brown px-4 py-2 rounded-lg font-semibold opacity-0 hover:opacity-100 transition-opacity duration-300 transform translate-y-2 hover:translate-y-0">View Gallery</span>
+                                        </button>
+                                    </div>
+                                    <figcaption>Elegant wedding book showcasing a beautiful ceremony and celebration
+                                        <button onclick="openModal('wedding')" class="mt-3 block w-full bg-gradient-to-r from-brick-red to-light-brick hover:from-deep-brown hover:to-brick-red text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md">
+                                            View Wedding Collection
+                                        </button>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="carousel__slide">
+                                <figure>
+                                    <div>
+                                        <img src="/assets/heritagebooks/military/military-book-dad.jpg" alt="Military Service Heritage Book">
+                                        <button onclick="openModal('military')" class="absolute inset-0 w-full h-full bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                                            <span class="bg-white text-deep-brown px-4 py-2 rounded-lg font-semibold opacity-0 hover:opacity-100 transition-opacity duration-300 transform translate-y-2 hover:translate-y-0">View Gallery</span>
+                                        </button>
+                                    </div>
+                                    <figcaption>Honoring military service with historical documentation
+                                        <button onclick="openModal('military')" class="mt-3 block w-full bg-gradient-to-r from-brick-red to-light-brick hover:from-deep-brown hover:to-brick-red text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md">
+                                            View Military Collection
+                                        </button>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="carousel__slide">
+                                <figure>
+                                    <div>
+                                        <img src="/assets/heritagebooks/individuals/individual-book-young.jpg" alt="Family History Book - Individual Person">
+                                        <button onclick="openModal('family')" class="absolute inset-0 w-full h-full bg-black bg-opacity-0 hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                                            <span class="bg-white text-deep-brown px-4 py-2 rounded-lg font-semibold opacity-0 hover:opacity-100 transition-opacity duration-300 transform translate-y-2 hover:translate-y-0">View Gallery</span>
+                                        </button>
+                                    </div>
+                                    <figcaption>Personal family history celebrating individual stories
+                                        <button onclick="openModal('family')" class="mt-3 block w-full bg-gradient-to-r from-brick-red to-light-brick hover:from-deep-brown hover:to-brick-red text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md">
+                                            View Family Collection
+                                        </button>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                        
+                        <ul class="carousel__thumbnails">
+                            <li>
+                                <label for="slide-1"><img src="/assets/heritagebooks/wedding/wedding-book-front.jpg" alt="Wedding Book Front"></label>
+                            </li>
+                            <li>
+                                <label for="slide-2"><img src="/assets/heritagebooks/military/military-book-dad.jpg" alt="Military Book"></label>
+                            </li>
+                            <li>
+                                <label for="slide-3"><img src="/assets/heritagebooks/individuals/individual-book-young.jpg" alt="Family History"></label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+           
+    </section>
+    
+    <section class="py-16 px-6 bg-gradient-to-r from-deep-brown via-brick-red to-deep-brown relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
+        <div class="max-w-4xl mx-auto text-center text-white relative z-10">
+            <h3 class="text-4xl md:text-5xl font-bold font-heading mb-6 text-shadow">Ready to Immortalize Your Family's Story?</h3>
+            <p class="text-xl mb-10 font-light text-white/90 max-w-2xl mx-auto leading-relaxed">Let us help you create a beautiful family history book that will be treasured for generations.</p>
+            <a href="/contact/" class="inline-block bg-gradient-to-r from-brick-red to-light-brick hover:from-white hover:to-cream hover:text-deep-brown text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl text-lg pulse-on-hover border-2 border-transparent hover:border-brick-red">Start Your Book Project</a>
+        </div>
+    </section>
+    
+    <!-- Modal Structure -->
+    <div id="bookModal" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="modal-content rounded-3xl max-w-7xl w-[95vw] max-h-[95vh] overflow-hidden shadow-2xl mx-4">
+            <div class="modal-header flex justify-between items-center">
+                <h3 id="modalTitle" class="text-3xl font-bold font-heading">Book Gallery</h3>
+                <button onclick="closeModal()" class="text-4xl text-white hover:text-red-200 transition-all duration-300 leading-none hover:scale-110 hover:rotate-90">&times;</button>
+            </div>
+            <div class="modal-body overflow-y-auto">
+                <div id="modalDescription" class="mb-8 text-lg text-gray-700 leading-relaxed font-light"></div>
+                <div id="modalGallery" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
+                    <!-- Images will be populated by JavaScript -->
+                </div>
+                <div id="modalDetails" class="bg-gradient-to-br from-cream via-white to-light-brown/10 p-8 rounded-2xl border border-light-brown/20 shadow-inner">
+                    <!-- Book details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const bookData = {
+            wedding: {
+                title: "Wedding Heritage Collection",
+                description: "Our wedding heritage books celebrate the beauty and significance of matrimonial unions. These elegant volumes preserve not just the ceremony, but the entire journey of love, family traditions, and the merging of two families' histories.",
+                images: [
+                    {src: "/assets/heritagebooks/wedding/wedding-book-front.jpg", alt: "Wedding Book Front Cover", caption: "Elegant front cover design featuring the couple's names and wedding date"},
+                    {src: "/assets/heritagebooks/wedding/wedding-book-ceremony.jpg", alt: "Wedding Ceremony Pages", caption: "Interior pages showcasing the ceremony with removable photo mounts"},
+                    {src: "/assets/heritagebooks/wedding/wedding-book-jones.jpg", alt: "Wedding Book Jones Family", caption: "Family tree integration showing both families' lineages"}
+                ],
+                details: {
+                    features: [
+                        "Removable photo mounting system for easy sharing",
+                        "Archival-quality materials for long-term preservation",
+                        "Custom family tree integration",
+                        "Historical context and family stories",
+                        "Professional layout and design"
+                    ],
+                    specifications: "Bound with museum-quality materials, featuring acid-free pages and protective sleeves for photographs"
+                }
+            },
+            military: {
+                title: "Military Service Heritage Books",
+                description: "Honor the brave service of family members with our military heritage books. These volumes document not just service records, but the personal stories, historical context, and lasting impact of military service on families.",
+                images: [
+                    {src: "/assets/heritagebooks/military/military-book-dad.jpg", alt: "Military Service Book Cover", caption: "Tribute to military service with historical documentation"},
+                    {src: "/assets/heritagebooks/military/military-book-buhler.jpg", alt: "Military Heritage Book Interior", caption: "Interior pages featuring service records and personal photographs"}
+                ],
+                details: {
+                    features: [
+                        "Service record documentation and verification",
+                        "Historical wartime context and timelines",
+                        "Integration of military photographs and documents",
+                        "Family impact stories and post-service life",
+                        "Maps and battle history when applicable"
+                    ],
+                    specifications: "Specially designed with military-themed elements while maintaining elegant, respectful presentation"
+                }
+            },
+            family: {
+                title: "Personal Family History Books",
+                description: "Every family member has a unique story worth preserving. Our personal family history books focus on individual lives, celebrating the person behind the dates and facts with rich storytelling and visual presentation.",
+                images: [
+                    {src: "/assets/heritagebooks/individuals/individual-book-young.jpg", alt: "Individual Person Family History Book", caption: "Personal story book featuring childhood and family memories"}
+                ],
+                details: {
+                    features: [
+                        "Individual life story narrative",
+                        "Childhood to present timeline presentation",
+                        "Integration of personal photographs and documents",
+                        "Family relationships and connections",
+                        "Historical and social context of their era"
+                    ],
+                    specifications: "Personalized design reflecting the individual's personality and life experiences"
+                }
+            }
+        };
+
+        function openModal(bookType) {
+            const modal = document.getElementById('bookModal');
+            const data = bookData[bookType];
+            
+            if (!data) return;
+            
+            // Set title and description
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalDescription').textContent = data.description;
+            
+            // Populate gallery
+            const gallery = document.getElementById('modalGallery');
+            gallery.innerHTML = data.images.map((img, index) => `
+                <div class="text-center group">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="${img.src}" alt="${img.alt}" class="modal-gallery-image w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-4 left-4 right-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                            <span class="text-xs font-medium bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">Image ${index + 1}</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 italic mt-4 leading-relaxed">${img.caption}</p>
+                </div>
+            `).join('');
+            
+            // Populate details
+            const details = document.getElementById('modalDetails');
+            details.innerHTML = `
+                <h4 class="text-3xl font-bold font-heading text-deep-brown mb-6 text-center">Features & Specifications</h4>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white/70 p-6 rounded-xl shadow-lg backdrop-blur-sm border border-white/50">
+                        <div class="flex items-center mb-4">
+                            <div class="w-3 h-3 bg-brick-red rounded-full mr-3"></div>
+                            <h5 class="text-xl font-semibold text-brick-red">Key Features</h5>
+                        </div>
+                        <ul class="space-y-3">
+                            ${data.details.features.map(feature => `
+                                <li class="flex items-start text-gray-700">
+                                    <span class="w-2 h-2 bg-light-brick rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span class="leading-relaxed">${feature}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div class="bg-white/70 p-6 rounded-xl shadow-lg backdrop-blur-sm border border-white/50">
+                        <div class="flex items-center mb-4">
+                            <div class="w-3 h-3 bg-deep-brown rounded-full mr-3"></div>
+                            <h5 class="text-xl font-semibold text-deep-brown">Specifications</h5>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed mb-6">${data.details.specifications}</p>
+                        <div class="p-5 bg-gradient-to-br from-brick-red to-light-brick text-white rounded-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
+                            <p class="font-semibold text-lg mb-3">Ready to create your own heritage book?</p>
+                            <a href="/contact/" class="inline-block bg-white text-brick-red px-6 py-3 rounded-lg font-semibold hover:bg-cream hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                                Get Started Today →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('bookModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('bookModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+

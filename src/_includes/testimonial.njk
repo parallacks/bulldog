@@ -1,0 +1,19 @@
+<div class="bg-cream p-6 rounded-lg shadow-lg border-l-4 border-accent-gold animate-bounce-in">
+    <div class="flex items-start gap-4">
+        <div class="text-accent-gold text-4xl leading-none">"</div>
+        <div>
+            <p class="text-gray-700 italic mb-4">{{ content }}</p>
+            <div class="flex items-center gap-3">
+                {% if photo %}
+                <img src="{{ photo }}" alt="{{ name }}" class="w-12 h-12 rounded-full object-cover">
+                {% endif %}
+                <div>
+                    <p class="font-semibold text-brick-red">{{ name }}</p>
+                    {% if location %}
+                    <p class="text-sm text-gray-600">{{ location }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,197 @@
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} - {% endif %}Brick Wall Bulldogs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brick-red': '#8F3C3C',
+                        'light-brick': '#d17878',
+                        'deep-brown': '#6d4c41',
+                        'light-brown': '#b39784',
+                        'cream': '#f5f2ed',
+                        'accent-gold': '#D4AF37',
+                        'success-green': '#10B981',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                        'bounce-gentle': 'bounceGentle 1s ease-in-out infinite',
+                        'bounce-in': 'bounceIn 0.6s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(143, 60, 60, 0.3)' },
+                            '50%': { boxShadow: '0 0 30px rgba(143, 60, 60, 0.6)' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        bounceIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.3)' },
+                            '50%': { opacity: '1', transform: 'scale(1.05)' },
+                            '70%': { transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .font-heading { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .text-shadow-light { text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+        
+        .gradient-text {
+            color: #8F3C3C;
+            line-height: 1.2;
+            padding: 0.25rem 0 0.5rem 0;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .service-icon:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+        
+        .pulse-on-hover:hover {
+            animation: pulseGlow 1s ease-in-out;
+        }
+        
+        .stat-card {
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .trust-badge {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .trust-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #8F3C3C;
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #8F3C3C, transparent);
+            height: 2px;
+            margin: 4rem auto;
+            max-width: 200px;
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .form-input:focus {
+            border-color: #8F3C3C;
+            box-shadow: 0 0 0 3px rgba(143, 60, 60, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .process-step {
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateX(10px);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #8F3C3C;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(143, 60, 60, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+                margin-top: 8rem !important;
+            }
+            
+            .trust-badge {
+                padding: 1rem !important;
+            }
+            
+            .stat-card {
+                padding: 1.5rem !important;
+            }
+            
+            .counter {
+                font-size: 2rem !important;
+            }
+            
+            .section-divider {
+                margin: 2rem auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem !important;
+                margin-top: 6rem !important;
+            }
+            
+            .text-4xl {
+                font-size: 1.875rem !important;
+            }
+            
+            .text-5xl {
+                font-size: 2.25rem !important;
+            }
+        }
+    </style>
