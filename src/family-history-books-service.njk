@@ -247,6 +247,8 @@ title: Family History Books
             background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,249,250,0.95) 100%);
             backdrop-filter: blur(20px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
         }
         
         .modal:not(.hidden) .modal-content {
@@ -304,6 +306,34 @@ title: Family History Books
         
         .modal-body {
             padding: 30px;
+            overflow-y: auto;
+            flex: 1;
+            max-height: calc(95vh - 120px);
+        }
+        
+        .modal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .modal-body::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .modal-body::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #8F3C3C, #d17878);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-body::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #6d4c41, #8F3C3C);
+        }
+        
+        /* Firefox scrollbar */
+        .modal-body {
+            scrollbar-width: thin;
+            scrollbar-color: #8F3C3C rgba(255, 255, 255, 0.1);
         }
         
         @media (max-width: 768px) {
@@ -311,6 +341,11 @@ title: Family History Books
                 margin: 15px;
                 max-height: calc(100vh - 30px);
                 width: calc(100vw - 30px);
+            }
+            
+            .modal-body {
+                padding: 20px;
+                max-height: calc(100vh - 120px);
             }
             
             .carousel {
@@ -324,10 +359,18 @@ title: Family History Books
             
             .modal-header {
                 padding: 20px;
+                flex-shrink: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .modal-body {
+                padding: 15px;
+                max-height: calc(100vh - 100px);
             }
             
-            .modal-body {
-                padding: 20px;
+            .modal-header {
+                padding: 15px;
             }
         }
     </style>
@@ -468,7 +511,7 @@ title: Family History Books
                 <h3 id="modalTitle" class="text-3xl font-bold font-heading">Book Gallery</h3>
                 <button onclick="closeModal()" class="text-4xl text-white hover:text-red-200 transition-all duration-300 leading-none hover:scale-110 hover:rotate-90">&times;</button>
             </div>
-            <div class="modal-body overflow-y-auto">
+            <div class="modal-body">
                 <div id="modalDescription" class="mb-8 text-lg text-gray-700 leading-relaxed font-light"></div>
                 <div id="modalGallery" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
                     <!-- Images will be populated by JavaScript -->
