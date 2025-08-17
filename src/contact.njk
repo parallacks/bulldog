@@ -65,22 +65,22 @@ title: Contact Us
                 <!-- Contact Form -->
                 <div class="bg-white rounded-xl shadow-xl p-8 card-hover scroll-reveal border-t-4 border-deep-brown">
                     <h3 class="text-2xl font-bold font-heading gradient-text mb-6">Send Us a Message</h3>
-                    <form>
+                    <form action="https://formspree.io/f/xwpqjvyl" method="POST">
                         <div class="mb-6">
                             <label for="name" class="block mb-2 font-bold text-deep-brown">Name</label>
-                            <input type="text" id="name" class="form-input w-full p-4 rounded-lg focus:outline-none" required>
+                            <input type="text" id="name" name="name" class="form-input w-full p-4 rounded-lg focus:outline-none" required>
                         </div>
                         <div class="mb-6">
                             <label for="email" class="block mb-2 font-bold text-deep-brown">Email</label>
-                            <input type="email" id="email" class="form-input w-full p-4 rounded-lg focus:outline-none" required>
+                            <input type="email" id="email" name="email" class="form-input w-full p-4 rounded-lg focus:outline-none" required>
                         </div>
                         <div class="mb-6">
                             <label for="phone" class="block mb-2 font-bold text-deep-brown">Phone (Optional)</label>
-                            <input type="tel" id="phone" class="form-input w-full p-4 rounded-lg focus:outline-none">
+                            <input type="tel" id="phone" name="phone" class="form-input w-full p-4 rounded-lg focus:outline-none">
                         </div>
                         <div class="mb-6">
                             <label for="service" class="block mb-2 font-bold text-deep-brown">Service Interested In</label>
-                            <select id="service" class="form-input w-full p-4 rounded-lg focus:outline-none">
+                            <select id="service" name="service" class="form-input w-full p-4 rounded-lg focus:outline-none">
                                 <option value="brick-wall">Brick Wall Breakthrough</option>
                                 <option value="family-tree">Family Tree Construction</option>
                                 <option value="document">Document Discovery</option>
@@ -92,7 +92,7 @@ title: Contact Us
                         </div>
                         <div class="mb-6">
                             <label for="message" class="block mb-2 font-bold text-deep-brown">Tell Us About Your Research Needs</label>
-                            <textarea id="message" class="form-input w-full p-4 rounded-lg h-40 focus:outline-none" required></textarea>
+                            <textarea id="message" name="message" class="form-input w-full p-4 rounded-lg h-40 focus:outline-none" required></textarea>
                         </div>
                         <button type="submit" class="bg-gradient-to-r from-brick-red to-light-brick hover:from-deep-brown hover:to-brick-red text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-lg pulse-on-hover">Send Message</button>
                     </form>

@@ -143,17 +143,20 @@ title: Family History Albums
         object-fit: cover;
         }
         .carousel__slide figcaption {
-        align-self: flex-end;
+        align-self: stretch;
         padding: 25px 25px 25px 25px;
-        flex: 0 0 auto;
-        width: 25%;
-        min-width: 150px;
+        flex: 1;
+        width: 35%;
+        min-width: 200px;
         background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,249,250,0.98) 100%);
-        border-radius: 15px;
-        margin: 15px;
+        {# border-radius: 15px; #}
+        {# margin: 15px; #}
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         }
         .carousel__slide .credit {
         margin-top: 1rem;
@@ -434,7 +437,7 @@ title: Family History Albums
                                             <span class="bg-white text-deep-brown px-4 py-2 rounded-lg font-semibold opacity-0 hover:opacity-100 transition-opacity duration-300 transform translate-y-2 hover:translate-y-0">View Gallery</span>
                                         </button>
                                     </div>
-                                    <figcaption>Elegant wedding album showcasing a beautiful ceremony and celebration
+                                    <figcaption>Showcase a family celebration
                                         <button onclick="openModal('wedding')" class="mt-3 block w-full bg-gradient-to-r from-brick-red to-light-brick hover:from-deep-brown hover:to-brick-red text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md">
                                             View Wedding Collection
                                         </button>
